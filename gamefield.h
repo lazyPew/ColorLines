@@ -4,13 +4,13 @@
 #include <QObject>
 #include <QQuickItem>
 #include <QAbstractItemModel>
-
+#include "point.h"
 class GameField : public QAbstractItemModel
 {
     Q_OBJECT
 
 public:
-    GameField(QObject* parent = nullptr);
+    GameField(uint width, uint height, QObject* parent = nullptr);
 
     enum Roles{
         XRole = Qt::UserRole + 1,
@@ -27,8 +27,8 @@ public:
     QHash<int, QByteArray> roleNames() const override;
 
 private:
-
-
+    void registerQmlTypes();
+    QVector<Point*> _points;
 
 };
 

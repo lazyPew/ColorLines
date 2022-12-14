@@ -2,7 +2,7 @@
 
 GameController::GameController(QObject *parent)
     : QObject(parent)
-    , _field{new GameField()}
+    , _field{new GameField(9,9)}
     , _points(0)
 {
 
