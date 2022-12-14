@@ -8,5 +8,14 @@ Page{
 
     GridView
     {
+        flow: GridView.FlowTopToBottom
+        model: controller.gameField
+        delegate: Rectangle
+        {
+            Label{
+                text: xRole
+            }
+        }
+
     }
 }

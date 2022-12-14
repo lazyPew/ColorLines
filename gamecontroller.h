@@ -11,9 +11,12 @@ class GameController : public QObject
 
     Q_PROPERTY(int points READ getPoints CONSTANT)
 
+    Q_PROPERTY(GameField* gameField READ gameField CONSTANT)
+
 public:
     explicit GameController(QObject *parent = nullptr);
 
+    GameField* gameField() const { return _gameField; }
 signals:
 
 public slots:
@@ -23,7 +26,10 @@ public slots:
     void exit();
 
 private:
-    GameField* _field;
+    void registerQmlTypes();
+
+private:
+    GameField* _gameField;
     int _points;
 };
 
